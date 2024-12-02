@@ -3,6 +3,7 @@ import { Character } from "../types/Character";
 import { memo } from "react";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
+import { useNavigate } from "react-router-dom";
 
 interface CharacterListItemProps {
   character: Character;
@@ -16,13 +17,14 @@ interface CharacterListItemProps {
 
 export const CharacterListItem = memo(
   ({ character, index }: CharacterListItemProps) => {
+    const navigate = useNavigate();
     return (
       <Stack
         direction="row"
         alignItems={"center"}
         justifyContent={"center"}
         className="ListRow"
-        onClick={() => console.log(index, character)}
+        onClick={() => navigate(`/characters/${index}`)}
         sx={{ minHeight: 40, cursor: "pointer" }}
       >
         <Typography variant="body1" sx={{ flex: 1 }}>

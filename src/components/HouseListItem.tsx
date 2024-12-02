@@ -1,6 +1,7 @@
 import { Card, CardContent, Stack, Typography } from "@mui/material";
 import { House } from "../types/House";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface HouseListItemProps {
   house: House;
@@ -13,13 +14,14 @@ interface HouseListItemProps {
 // =================================================================================================
 
 export const HouseListItem = memo(({ house, index }: HouseListItemProps) => {
+  const navigate = useNavigate();
   return (
     <Stack
       direction="row"
       alignItems={"center"}
       justifyContent={"center"}
       className="ListRow"
-      onClick={() => console.log(index, house)}
+      onClick={() => navigate(`/houses/${index}`)}
       sx={{ minHeight: 40, cursor: "pointer" }}
     >
       <Typography variant="body1" sx={{ flex: 1 }}>

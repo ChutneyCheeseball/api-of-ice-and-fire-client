@@ -1,4 +1,4 @@
-import { CircularProgress, Container } from "@mui/material";
+import { CircularProgress, Container, Stack } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { Explorer } from "./components/Explorer";
 import { BookExplorer } from "./components/BookExplorer";
@@ -9,6 +9,10 @@ import { Character } from "./types/Character";
 import { House } from "./types/House";
 import { Book } from "./types/Book";
 import { APIItem, getAllItems } from "./APIs/AAOIAF";
+import { BookDetails } from "./components/BookDetails";
+import { SpecificBook } from "./components/SpecificBook";
+import { SpecificHouse } from "./components/SpecificHouse";
+import { SpecificCharacter } from "./components/SpecificCharacter";
 
 // =================================================================================================
 // App Component
@@ -24,6 +28,7 @@ function App() {
   const [books, setBooks] = useState<Book[]>([]);
   const [houses, setHouses] = useState<House[]>([]);
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [loadingItem, setLoadingItem] = useState("");
 
   // -----------------------------------------------------------------------------------------------
   // Calls to fetch and set all our data from local storage or remote API
@@ -45,6 +50,7 @@ function App() {
 
   useEffect(() => {
     const fetchItems = async (item: APIItem, pageSize: number) => {
+      setLoadingItem(item);
       const storedItems = localStorage.getItem(item);
       if (storedItems === null) {
         console.log(`No ${item} in storage`);
@@ -79,15 +85,38 @@ function App() {
     <div className="App">
       <Container maxWidth="lg" className="MainContainer">
         {loading ? (
-          <CircularProgress />
+          <Stack spacing={4} justifyContent={"center"} alignItems={"center"}>
+            <h4>Loading {loadingItem}...</h4>
+            <CircularProgress />
+          </Stack>
         ) : (
           <Routes>
             <Route path="/" element={<Explorer />} />
             <Route path="/books" element={<BookExplorer books={books} />} />
+            <Route
+              path="/books/:index"
+              element={<SpecificBook books={books} characters={characters} />}
+            />
             <Route path="/houses" element={<HouseExplorer houses={houses} />} />
+            <Route
+              path="/houses/:index"
+              element={
+                <SpecificHouse houses={houses} characters={characters} />
+              }
+            />
             <Route
               path="/characters"
               element={<CharacterExplorer characters={characters} />}
+            />
+            <Route
+              path="/characters/:index"
+              element={
+                <SpecificCharacter
+                  books={books}
+                  houses={houses}
+                  characters={characters}
+                />
+              }
             />
           </Routes>
         )}
