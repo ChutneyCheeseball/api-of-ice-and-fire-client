@@ -13,3 +13,10 @@ export const monthNames = [
   "Nov",
   "Dec",
 ];
+
+// Used for faking API response times, etc.
+export function timeout(ms: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}

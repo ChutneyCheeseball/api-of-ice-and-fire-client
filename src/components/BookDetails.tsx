@@ -19,7 +19,7 @@ export const BookDetails = memo(({ book }: BookDetailsProps) => {
       <Typography
         variant="h6"
         component="div"
-        sx={{ fontFamily: "GOT", fontSize: 16 }}
+        sx={{ fontFamily: "GOT", fontSize: 16, wordSpacing: 4 }}
       >
         {book.name}
       </Typography>

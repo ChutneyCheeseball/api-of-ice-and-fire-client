@@ -20,8 +20,8 @@ export const BookList = memo(({ books }: BookListProps) => {
       spacing={0}
       justifyContent={"space-evenly"}
     >
-      {books.map((book) => (
-        <BookListItem key={book.name} book={book} />
+      {books.map((book, index) => (
+        <BookListItem key={index} book={book} />
       ))}
     </Stack>
   );

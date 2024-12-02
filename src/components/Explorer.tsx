@@ -1,12 +1,13 @@
 import { Stack, Typography } from "@mui/material";
 import { RouteLink } from "./RouteLink";
+import { memo } from "react";
 
 // =================================================================================================
 // Explorer Component
 // Choose which API to explore
 // =================================================================================================
 
-export const Explorer = () => {
+export const Explorer = memo(() => {
   return (
     <div>
       <Typography variant="h5" component="div">
@@ -20,4 +21,4 @@ export const Explorer = () => {
       </Stack>
     </div>
   );
-};
+});

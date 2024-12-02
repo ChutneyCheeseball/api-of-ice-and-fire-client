@@ -39,3 +39,7 @@ code {
   font-weight: normal;
   font-style: normal;
 }
+
+.ListRow:nth-child(2n) {
+  background-color: #D9D9E3;
+}
