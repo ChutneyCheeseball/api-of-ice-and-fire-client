@@ -7,6 +7,9 @@ interface BookListItemProps {
   book: Book;
 }
 
+const width = 220;
+const height = 275;
+
 // =================================================================================================
 // BookListItem Component
 // Shows the book details and cover art side-by-side
@@ -20,7 +23,7 @@ export const BookListItem = memo(({ book }: BookListItemProps) => {
       onClick={() => console.log(book.name)}
     >
       {/* Card for book details */}
-      <Card sx={{ width: 200, height: 250, marginRight: 1 }}>
+      <Card sx={{ width, height, marginRight: 1 }}>
         <CardContent>
           <BookDetails book={book} />
         </CardContent>
@@ -28,8 +31,8 @@ export const BookListItem = memo(({ book }: BookListItemProps) => {
       {/* Card for book cover art - from OpenLibrary */}
       <Card
         sx={{
-          width: 200,
-          height: 250,
+          width,
+          height,
           backgroundColor: "transparent",
         }}
       >
@@ -37,7 +40,7 @@ export const BookListItem = memo(({ book }: BookListItemProps) => {
           src={`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`}
           alt={`${book.name} Cover Art`}
           title={`${book.name} Cover Art`}
-          style={{ width: 200, height: 250 }}
+          style={{ width, height }}
         />
       </Card>
     </Stack>

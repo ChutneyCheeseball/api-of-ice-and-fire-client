@@ -25,7 +25,7 @@ code {
 .MainContainer {
   margin: 20px;
   padding: 16px;
-  background-color: #555555;
+  background-color: #E5E5EA;
   border-radius: 16px;
 }
 
@@ -38,4 +38,8 @@ code {
   src: url('./Game of Thrones.ttf');
   font-weight: normal;
   font-style: normal;
+}
+
+.ListRow:nth-child(2n) {
+  background-color: #D9D9E3;
 }
