@@ -20,7 +20,7 @@ export const Pagination = memo(
         <span
           style={{
             cursor: "pointer",
-            fontWeight: i === activePage ? "bold" : "normal",
+            textDecoration: i === activePage ? "underline" : "none",
           }}
           onClick={() => onClick(i)}
         >
@@ -32,6 +32,7 @@ export const Pagination = memo(
       <Stack
         direction="row"
         justifyContent={"space-evenly"}
+        alignItems={"center"}
         sx={{ marginTop: 2, borderTop: "1px solid black", paddingTop: 2 }}
       >
         {p}

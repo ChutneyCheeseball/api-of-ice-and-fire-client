@@ -16,8 +16,8 @@ export const CharacterExplorer = memo(
   ({ characters }: CharacterExplorerProps) => {
     return (
       <div>
-        <Stack spacing={2}>
-          <Explorer />
+        <Stack spacing={4}>
+          <Explorer active="characters" />
           <CharacterList characters={characters} />
         </Stack>
       </div>

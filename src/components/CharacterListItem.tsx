@@ -22,8 +22,8 @@ export const CharacterListItem = memo(
         alignItems={"center"}
         justifyContent={"center"}
         className="ListRow"
-        onClick={() => console.log(character)}
-        sx={{ paddingTop: 1 }}
+        onClick={() => console.log(index, character)}
+        sx={{ minHeight: 40, cursor: "pointer" }}
       >
         <Typography variant="body1" sx={{ flex: 1 }}>
           {index}

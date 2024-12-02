@@ -16,8 +16,8 @@ interface HouseExplorerProps {
 export const HouseExplorer = memo(({ houses }: HouseExplorerProps) => {
   return (
     <div>
-      <Stack spacing={2}>
-        <Explorer />
+      <Stack spacing={4}>
+        <Explorer active="houses" />
         <HouseList houses={houses} />
       </Stack>
     </div>

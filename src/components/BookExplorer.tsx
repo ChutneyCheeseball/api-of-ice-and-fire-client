@@ -15,8 +15,8 @@ interface BookExplorerProps {
 export const BookExplorer = memo(({ books }: BookExplorerProps) => {
   return (
     <div>
-      <Stack spacing={2}>
-        <Explorer />
+      <Stack spacing={4}>
+        <Explorer active="books" />
         <BookList books={books} />
       </Stack>
     </div>

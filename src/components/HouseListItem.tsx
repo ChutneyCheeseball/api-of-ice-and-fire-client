@@ -19,8 +19,8 @@ export const HouseListItem = memo(({ house, index }: HouseListItemProps) => {
       alignItems={"center"}
       justifyContent={"center"}
       className="ListRow"
-      onClick={() => console.log(house)}
-      sx={{ paddingTop: 1 }}
+      onClick={() => console.log(index, house)}
+      sx={{ minHeight: 40, cursor: "pointer" }}
     >
       <Typography variant="body1" sx={{ flex: 1 }}>
         {index}

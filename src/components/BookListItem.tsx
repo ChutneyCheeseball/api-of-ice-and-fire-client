@@ -5,6 +5,7 @@ import { memo } from "react";
 
 interface BookListItemProps {
   book: Book;
+  index: number;
 }
 
 const width = 220;
@@ -15,12 +16,12 @@ const height = 275;
 // Shows the book details and cover art side-by-side
 // =================================================================================================
 
-export const BookListItem = memo(({ book }: BookListItemProps) => {
+export const BookListItem = memo(({ book, index }: BookListItemProps) => {
   return (
     <Stack
       direction="row"
       sx={{ margin: 2, cursor: "pointer" }}
-      onClick={() => console.log(book.name)}
+      onClick={() => console.log(index, book)}
     >
       {/* Card for book details */}
       <Card sx={{ width, height, marginRight: 1 }}>
