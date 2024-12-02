@@ -23,7 +23,19 @@ code {
 }
 
 .MainContainer {
+  margin: 20px;
   padding: 16px;
-  background-color: cadetblue;
+  background-color: #555555;
   border-radius: 16px;
+}
+
+.BookListItem {
+  border: 1px solid black;
+}
+
+@font-face {
+  font-family: 'GOT';
+  src: url('./Game of Thrones.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
