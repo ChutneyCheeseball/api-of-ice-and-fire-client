@@ -6,25 +6,21 @@ const booksAPI = axios.create({
   baseURL: "https://www.anapioficeandfire.com/api/books",
 });
 
-export const getAllBooks = async (mocked = false) => {
-  if (mocked) {
-    return AllBooks;
-  }
-  try {
-    const response = await booksAPI.get("");
-    if (response.status === 200) {
-      return response.data as Book[];
-    }
-  } catch (e) {
-    console.error(e);
-  }
-  return null;
-};
+// =================================================================================================
+// getBooks - get one page worth of books
+// =================================================================================================
 
-export const getBookNumber = async (num: number) => {
+export const getBooks = async (page = 1, pageSize = 10) => {
   try {
-    const response = await booksAPI.get(`/${num}`);
+    console.log("Fetching page", page, "of results");
+    const response = await booksAPI.get("", {
+      params: {
+        page,
+        pageSize,
+      },
+    });
     if (response.status === 200) {
+      console.log("Got", response.data.length, "item(s)");
       return response.data as Book[];
     }
   } catch (e) {

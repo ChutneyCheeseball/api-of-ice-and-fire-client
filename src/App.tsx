@@ -1,31 +1,25 @@
-import { Button, Container } from "@mui/material";
-import { getAllBooks } from "./APIs/BooksAPI";
-import { useState } from "react";
-import { Book } from "./types/Book";
-import { BookList } from "./components/BookList";
+import { Container } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+import { Explorer } from "./components/Explorer";
+import { BookExplorer } from "./components/BookExplorer";
+import { HouseExplorer } from "./components/HouseExplorer";
+import { CharacterExplorer } from "./components/CharacterExplorer";
 
 // =================================================================================================
 // App Component
-// An API of Ice and Fire client
+// An explorer client for An API of Ice and Fire
 // =================================================================================================
 
 function App() {
-  const getBooks = async () => {
-    const books = await getAllBooks(true); // Mocked response
-    if (books !== null) {
-      setBooks(books);
-    }
-  };
-
-  const [books, setBooks] = useState<Book[]>([]);
-
   return (
     <div className="App">
-      <Container maxWidth="xl" className="MainContainer">
-        <Button variant="contained" onClick={getBooks}>
-          Get All Books
-        </Button>
-        <BookList books={books} />
+      <Container maxWidth="lg" className="MainContainer">
+        <Routes>
+          <Route path="/" element={<Explorer />} />
+          <Route path="/books" element={<BookExplorer />} />
+          <Route path="/houses" element={<HouseExplorer />} />
+          <Route path="/characters" element={<CharacterExplorer />} />
+        </Routes>
       </Container>
     </div>
   );

@@ -39,9 +39,6 @@ export const BookDetails = memo(({ book }: BookDetailsProps) => {
       <Typography variant="body2" color="text.secondary">
         {book.publisher}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Media Type: {book.mediaType}
-      </Typography>
     </Stack>
   );
 });
