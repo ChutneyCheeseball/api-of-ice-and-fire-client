@@ -18,6 +18,7 @@ export const Pagination = memo(
     for (let i = 1; i <= numberOfPages; i++) {
       p.push(
         <span
+          key={i}
           style={{
             cursor: "pointer",
             textDecoration: i === activePage ? "underline" : "none",

@@ -13,7 +13,11 @@ export type APIItem = "books" | "houses" | "characters";
 // getItems - get one page worth of results
 // =================================================================================================
 
-export const getItems = async (item: APIItem, page = 1, pageSize = 10) => {
+export const getItems = async (
+  item: APIItem,
+  page: number,
+  pageSize: number
+) => {
   try {
     console.log(`Fetching ${item} page ${page}`);
     const response = await API.get(item, {
@@ -45,7 +49,7 @@ export const getItems = async (item: APIItem, page = 1, pageSize = 10) => {
 // getAllItems - fetch everything we can
 // =================================================================================================
 
-export const getAllItems = async (item: APIItem, pageSize = 10) => {
+export const getAllItems = async (item: APIItem, pageSize: number) => {
   let page = 1;
   const items = [];
   while (true) {

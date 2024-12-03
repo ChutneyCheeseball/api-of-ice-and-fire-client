@@ -43,3 +43,11 @@ code {
 .ListRow:nth-child(2n) {
   background-color: #D9D9E3;
 }
+
+.UnderlineOnHover {
+  border-bottom: 1px dotted black;
+}
+
+.UnderlineOnHover:hover {
+  border-bottom: 1px solid black;
+}

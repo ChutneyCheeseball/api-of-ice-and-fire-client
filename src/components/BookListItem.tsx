@@ -2,6 +2,7 @@ import { Card, CardContent, Stack } from "@mui/material";
 import { Book } from "../types/Book";
 import { BookDetails } from "./BookDetails";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface BookListItemProps {
   book: Book;
@@ -17,11 +18,12 @@ const height = 275;
 // =================================================================================================
 
 export const BookListItem = memo(({ book, index }: BookListItemProps) => {
+  const navigate = useNavigate();
   return (
     <Stack
       direction="row"
       sx={{ margin: 2, cursor: "pointer" }}
-      onClick={() => console.log(index, book)}
+      onClick={() => navigate(`/books/${index}`)}
     >
       {/* Card for book details */}
       <Card sx={{ width, height, marginRight: 1 }}>
