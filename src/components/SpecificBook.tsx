@@ -5,6 +5,7 @@ import { memo } from "react";
 import { Explorer } from "./Explorer";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+  getBookIndexFromUrl,
   getCharacterIndexFromUrl,
   monthNames,
   URLsToCharacters,
@@ -32,6 +33,27 @@ export const CharacterLinks = (props: { characters: Character[] }) => {
             {character.name || character.aliases[0]}
           </span>
           {index < characters.length - 1 && ", "}
+        </span>
+      ))}
+    </>
+  );
+};
+
+export const BookLinks = (props: { books: Book[] }) => {
+  const navigate = useNavigate();
+  const { books } = props;
+  return (
+    <>
+      {books.map((book, index) => (
+        <span key={book.url}>
+          <span
+            className="UnderlineOnHover"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/books/${getBookIndexFromUrl(book.url)}`)}
+          >
+            {book.name}
+          </span>
+          {index < books.length - 1 && ", "}
         </span>
       ))}
     </>

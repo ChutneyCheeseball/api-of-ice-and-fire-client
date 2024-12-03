@@ -44,6 +44,10 @@ code {
   background-color: #D9D9E3;
 }
 
+.UnderlineOnHover {
+  border-bottom: 1px dotted black;
+}
+
 .UnderlineOnHover:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid black;
 }

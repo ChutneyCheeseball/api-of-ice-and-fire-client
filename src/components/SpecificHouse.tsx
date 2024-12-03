@@ -43,7 +43,6 @@ export const HouseLinks = (props: { houses: House[] }) => {
 export const SpecificHouse = memo(
   ({ houses, characters }: SpecificHouseProps) => {
     const { index } = useParams() ?? "1";
-    const navigate = useNavigate();
     const house = houses[Number(index) - 1];
     if (!house) {
       return null; // Not received props yet
@@ -123,8 +122,8 @@ export const SpecificHouse = memo(
                 >
                   Cadet branches:
                 </Typography>
+                <HouseLinks houses={cadetBranches} />
               </div>
-              <HouseLinks houses={cadetBranches} />
               <div>
                 <Typography
                   variant="body1"
