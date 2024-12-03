@@ -18,6 +18,7 @@ export const RouteLink = memo(
     const navigate = useNavigate();
     return (
       <Typography
+        className="UnderlineOnHover"
         variant="h6"
         component="div"
         sx={{

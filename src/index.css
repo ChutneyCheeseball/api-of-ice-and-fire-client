@@ -43,3 +43,7 @@ code {
 .ListRow:nth-child(2n) {
   background-color: #D9D9E3;
 }
+
+.UnderlineOnHover:hover {
+  text-decoration: underline;
+}
