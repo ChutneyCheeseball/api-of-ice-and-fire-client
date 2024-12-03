@@ -54,6 +54,18 @@ export const SpecificBook = memo(({ books, characters }: SpecificBookProps) => {
               Published by {book.publisher}
             </Typography>
             <Typography variant="body1">{book.country}</Typography>
+            <div>
+              <img
+                src={`https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`}
+                alt={`${book.name} Cover Art`}
+                title={`${book.name} Cover Art`}
+                style={{
+                  width: 325,
+                  height: 500,
+                  border: "1px solid rgba(0,0,0,0.25)",
+                }}
+              />
+            </div>
             {bookCharacters.length > 0 && (
               <div>
                 <Typography

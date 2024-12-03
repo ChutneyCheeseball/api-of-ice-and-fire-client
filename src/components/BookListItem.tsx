@@ -10,7 +10,7 @@ interface BookListItemProps {
 }
 
 const width = 220;
-const height = 275;
+const height = 300;
 
 // =================================================================================================
 // BookListItem Component
