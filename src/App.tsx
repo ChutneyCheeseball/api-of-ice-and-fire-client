@@ -59,10 +59,21 @@ function App() {
           console.log(`Setting ${result.length} ${item} in storage"`);
           setItem(item, result);
           localStorage.setItem(item, JSON.stringify(result));
+        } else {
+          alert(
+            `A problem occurred when trying to fetch ${item}. Please wait a moment and try again.`
+          );
         }
       } else {
         console.log(`Loading ${item} from storage`);
-        setItem(item, JSON.parse(storedItems));
+        try {
+          setItem(item, JSON.parse(storedItems));
+        } catch (e) {
+          console.error(e);
+          alert(
+            "The stored data seems to be corrupt. Please clear local storage and try again."
+          );
+        }
       }
     };
 
