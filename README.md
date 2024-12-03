@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# A client for An API of Ice and Fire
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The [MUI](https://mui.com) component library is used for many visual elements.
 
-In the project directory, you can run:
+Book covers are fetched from the [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers).
+
+## Getting started
+
+In the project directory, after installing the node modules, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Please be patient while the API data is fetched on the first load.
 
-### `npm test`
+## Development methodology
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Saving API data to local storage
 
-### `npm run build`
+Due to the highly recursive nature of the [An API of Ice and Fire](https://anapioficeandfire.com/) data (e.g. a character can link to multiple other characters, houses and books) I decided to fetch all API data on app render.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All books, houses and characters are fetched at once, and then stored in local storage. On subsequent renders they do not need to be fetched from the remote API, but rather read from storage.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This works well because of the static nature of the data. Once everything is loaded, all items can be navigated without any additional API calls.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### UI/UX design woes
 
-### `npm run eject`
+I am not a very good UI/UX designer and I struggled for many hours to develop the look and feel of the app. For this reason I used the MUI library to speed up the development time of some of the visual elements.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I am much better at interpreting Figma designs etc. and implementing them, than I am at coming up with my own visual design.
