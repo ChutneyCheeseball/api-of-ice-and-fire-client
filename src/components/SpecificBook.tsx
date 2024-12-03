@@ -3,62 +3,19 @@ import { Book } from "../types/Book";
 import { Character } from "../types/Character";
 import { memo } from "react";
 import { Explorer } from "./Explorer";
-import { useNavigate, useParams } from "react-router-dom";
-import {
-  getBookIndexFromUrl,
-  getCharacterIndexFromUrl,
-  monthNames,
-  URLsToCharacters,
-} from "../utility";
+import { useParams } from "react-router-dom";
+import { monthNames, URLsToCharacters } from "../utility";
+import { CharacterLinks } from "./CharacterLinks";
 
 interface SpecificBookProps {
   books: Book[];
   characters: Character[];
 }
 
-export const CharacterLinks = (props: { characters: Character[] }) => {
-  const navigate = useNavigate();
-  const { characters } = props;
-  return (
-    <>
-      {characters.map((character, index) => (
-        <span key={character.url}>
-          <span
-            className="UnderlineOnHover"
-            style={{ cursor: "pointer" }}
-            onClick={() =>
-              navigate(`/characters/${getCharacterIndexFromUrl(character.url)}`)
-            }
-          >
-            {character.name || character.aliases[0]}
-          </span>
-          {index < characters.length - 1 && ", "}
-        </span>
-      ))}
-    </>
-  );
-};
-
-export const BookLinks = (props: { books: Book[] }) => {
-  const navigate = useNavigate();
-  const { books } = props;
-  return (
-    <>
-      {books.map((book, index) => (
-        <span key={book.url}>
-          <span
-            className="UnderlineOnHover"
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate(`/books/${getBookIndexFromUrl(book.url)}`)}
-          >
-            {book.name}
-          </span>
-          {index < books.length - 1 && ", "}
-        </span>
-      ))}
-    </>
-  );
-};
+// =================================================================================================
+// SpecificBook Component
+// Show everything we know about a book
+// =================================================================================================
 
 export const SpecificBook = memo(({ books, characters }: SpecificBookProps) => {
   const { index } = useParams() ?? "1";

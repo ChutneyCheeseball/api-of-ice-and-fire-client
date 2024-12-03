@@ -3,42 +3,20 @@ import { House } from "../types/House";
 import { Character } from "../types/Character";
 import { memo } from "react";
 import { Explorer } from "./Explorer";
-import { useNavigate, useParams } from "react-router-dom";
-import {
-  getCharacterIndexFromUrl,
-  getHouseIndexFromUrl,
-  URLsToCharacters,
-  URLsToHouses,
-} from "../utility";
-import { CharacterLinks } from "./SpecificBook";
+import { useParams } from "react-router-dom";
+import { URLsToCharacters, URLsToHouses } from "../utility";
+import { CharacterLinks } from "./CharacterLinks";
+import { HouseLinks } from "./HouseLinks";
 
 interface SpecificHouseProps {
   houses: House[];
   characters: Character[];
 }
 
-export const HouseLinks = (props: { houses: House[] }) => {
-  const navigate = useNavigate();
-  const { houses } = props;
-  return (
-    <>
-      {houses.map((house, index) => (
-        <span key={house.url}>
-          <span
-            className="UnderlineOnHover"
-            style={{ cursor: "pointer" }}
-            onClick={() =>
-              navigate(`/houses/${getHouseIndexFromUrl(house.url)}`)
-            }
-          >
-            {house.name}
-          </span>
-          {index < houses.length - 1 && ", "}
-        </span>
-      ))}
-    </>
-  );
-};
+// =================================================================================================
+// SpecificHouse Component
+// Show everything we know about a house
+// =================================================================================================
 
 export const SpecificHouse = memo(
   ({ houses, characters }: SpecificHouseProps) => {

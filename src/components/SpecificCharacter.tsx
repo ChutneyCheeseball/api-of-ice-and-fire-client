@@ -7,15 +7,21 @@ import { useParams } from "react-router-dom";
 import { Book } from "../types/Book";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
-import { BookLinks, CharacterLinks } from "./SpecificBook";
 import { URLsToBooks, URLsToCharacters, URLsToHouses } from "../utility";
-import { HouseLinks } from "./SpecificHouse";
+import { BookLinks } from "./BookLinks";
+import { CharacterLinks } from "./CharacterLinks";
+import { HouseLinks } from "./HouseLinks";
 
 interface SpecificCharacterProps {
   houses: House[];
   characters: Character[];
   books: Book[];
 }
+
+// =================================================================================================
+// SpecificCharacter Component
+// Show everything we know about a character
+// =================================================================================================
 
 export const SpecificCharacter = memo(
   ({ books, houses, characters }: SpecificCharacterProps) => {
